@@ -25,8 +25,9 @@ var ip = '127.0.0.1';
 //
 // After creating the server, we will tell it to listen on the given port and IP. */
 var server = http.createServer(function(request, response) {
-  var parts = urlParser(request.url);
-  if(parts.pathName === '/classes/chatterbox') {
+  var parts = urlParser.parse(request.url);
+  // console.log(parts);
+  if(parts.pathname === '/classes/messages') {
     handleRequest(request, response);
   } else {
     utils.sendResponse(response, "Not Found", 404);

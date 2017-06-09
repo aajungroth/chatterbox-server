@@ -1,5 +1,5 @@
 var utils = require('./utils');
-console.log(utils);
+// console.log(utils);
 
 var messages = [];
 
@@ -10,7 +10,7 @@ var actions = {
     utils.sendResponse(response, {results: messages});
   },
   'POST': function(request, response) {
-      utils.collectData(request, function(message) {
+    utils.collectData(request, function(message) {
       message.objectId = objectIdCounter++;
       messages.push(message);
       utils.sendResponse(response, {objectId: message.objectId}, 201);
